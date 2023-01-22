@@ -1,4 +1,7 @@
-setup: install build publish brain-games
+setup: install build publish package-install brain-even
+
+lint:
+	poetry run flake8 brain_games
 
 install:
 	poetry install
@@ -14,5 +17,8 @@ package-install:
 
 brain-games:
 	poetry run brain-games
+
+brain-even:
+	poetry run brain-even
 
 .PHONY: install
