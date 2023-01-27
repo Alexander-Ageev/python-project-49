@@ -3,4 +3,4 @@
 
 <a href="https://codeclimate.com/github/Alexander-Ageev/python-project-49/maintainability"><img src="https://api.codeclimate.com/v1/badges/b12e7eba7ccaf1416b27/maintainability" /></a>
 
-<a href="https://asciinema.org/a/554903" target="_blank"><img src="https://asciinema.org/a/554903.svg" startAt = "18" /></a>
+<a href="https://asciinema.org/a/554903?startAt=18" target="_blank"><img src="https://asciinema.org/a/554903.svg"/></a>
