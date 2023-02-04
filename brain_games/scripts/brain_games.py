@@ -5,10 +5,11 @@ import brain_games.cli as cli
 ATTEMPS_NUMS = 3
 
 
-def main(function=None):
+def main(function=None, rule=None):
     cli.welcome()
     name = cli.username_request()
     cli.hello(name)
+    cli.get_rule(rule)
     if function is not None:
         for i in range(ATTEMPS_NUMS):
             message, correct_answer = function()

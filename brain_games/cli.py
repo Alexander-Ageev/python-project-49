@@ -14,8 +14,9 @@ def hello(name: str) -> str:
     print(f'Hello, {name}!')
 
 
-def even_rule():
-    print('Answer "yes" if the number is even, otherwise answer "no".')
+def get_rule(rule: str):
+    if rule is not None:
+        print(rule)
 
 
 def calc_rule():

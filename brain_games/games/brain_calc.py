@@ -3,7 +3,8 @@ from brain_games.games_logic import calc
 
 
 def main():
-    games.main(calc)
+    rule = 'What is the result of the expression?'
+    games.main(calc, rule)
 
 
 if __name__ == '__main__':
