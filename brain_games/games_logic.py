@@ -54,3 +54,26 @@ def gcd():
     question = f'Question: {m} {k}'
     correct_answer = get_gcd(m, k)
     return (question, str(correct_answer))
+
+
+MIN_SEQUENCE_LEN = 5
+MAX_SEQUENCE_LEN = 15
+GEN_STEP_LIM = 10
+
+
+def get_progression(start_element: int, step: int, num_elements: int) -> list:
+    result = [str(start_element + step * i) for i in range(num_elements)]
+    return result
+
+
+def progression():
+    num_elements = randint(MIN_SEQUENCE_LEN, MAX_SEQUENCE_LEN)
+    start_element = randint(0, GEN_LIMS)
+    step = randint(1, GEN_STEP_LIM)
+    progression_list = get_progression(start_element, step, num_elements)
+    skip_elemend_id = randint(0, len(progression_list) - 1)
+    correct_answer = progression_list[skip_elemend_id]
+    progression_list[skip_elemend_id] = '..'
+    progression_str = ' '.join(progression_list)
+    question = f'Question: {progression_str}'
+    return (question, str(correct_answer))
