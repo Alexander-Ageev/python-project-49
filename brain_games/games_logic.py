@@ -77,3 +77,17 @@ def progression():
     progression_str = ' '.join(progression_list)
     question = f'Question: {progression_str}'
     return (question, str(correct_answer))
+
+
+def is_prime(number: int) -> str:
+    for i in range(2, number):
+        if number % i == 0 and number != i:
+            return 'no'
+    return 'yes'
+
+
+def prime():
+    number = randint(2, GEN_LIMS)
+    correct_answer = is_prime(number)
+    question = f'Question: {number}'
+    return (question, correct_answer)
