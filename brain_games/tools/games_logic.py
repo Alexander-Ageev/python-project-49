@@ -1,10 +1,22 @@
+"""
+Модуль содержит реализацию игровой логики для игр:
+brain_even
+brain_calc
+brain_gcd
+brain_progression
+brain_prime
+Функции для каждой игры сгруппированы, все конфигурационные параметры
+вынесены в виде констант
+"""
+
+
 from random import choice, randint
 
 
 OPERATIONS = {'+': lambda a, b: a + b,
               '-': lambda a, b: a - b,
               '*': lambda a, b: a * b}
-GEN_LIMS = 100
+CALC_GEN_LIMS = 100
 
 
 def calc() -> tuple:
@@ -16,8 +28,8 @@ def calc() -> tuple:
     В результате работы функция возвращает кортеж:
         (строка с примером, правильный ответ).
     """
-    a = randint(0, GEN_LIMS)
-    b = randint(0, GEN_LIMS)
+    a = randint(0, CALC_GEN_LIMS)
+    b = randint(0, CALC_GEN_LIMS)
     operation_type = choice([*OPERATIONS])
     correct_answer = OPERATIONS[operation_type](a, b)
     question = f'Question: {a}{operation_type}{b}'
@@ -25,19 +37,23 @@ def calc() -> tuple:
 
 
 IS_EVEN = {0: 'yes', 1: 'no'}
+EVEN_GEN_LIMS = 100
 
 
-def check_even():
+def even():
     """
     Функция генерирует случайное число и возвращает кортеж:
         (вопрос, правильный ответ),
     где правильный ответ "yes", если число четное
     "no" - если нечетное.
     """
-    number = randint(1, GEN_LIMS)
+    number = randint(1, EVEN_GEN_LIMS)
     question = f'Question: {number}'
     correct_answer = IS_EVEN[number % 2]
     return (question, correct_answer)
+
+
+GCD_GEN_LIMS = 100
 
 
 def get_gcd(m: int, k: int) -> int:
@@ -49,8 +65,8 @@ def get_gcd(m: int, k: int) -> int:
 
 
 def gcd():
-    m = randint(1, GEN_LIMS)
-    k = randint(1, GEN_LIMS)
+    m = randint(1, GCD_GEN_LIMS)
+    k = randint(1, GCD_GEN_LIMS)
     question = f'Question: {m} {k}'
     correct_answer = get_gcd(m, k)
     return (question, str(correct_answer))
@@ -59,6 +75,7 @@ def gcd():
 MIN_SEQUENCE_LEN = 5
 MAX_SEQUENCE_LEN = 15
 GEN_STEP_LIM = 10
+PROGRESSION_GEN_LIMS = 10
 
 
 def get_progression(start_element: int, step: int, num_elements: int) -> list:
@@ -68,7 +85,7 @@ def get_progression(start_element: int, step: int, num_elements: int) -> list:
 
 def progression():
     num_elements = randint(MIN_SEQUENCE_LEN, MAX_SEQUENCE_LEN)
-    start_element = randint(0, GEN_LIMS)
+    start_element = randint(0, PROGRESSION_GEN_LIMS)
     step = randint(1, GEN_STEP_LIM)
     progression_list = get_progression(start_element, step, num_elements)
     skip_elemend_id = randint(0, len(progression_list) - 1)
@@ -79,6 +96,9 @@ def progression():
     return (question, str(correct_answer))
 
 
+PRIME_GEN_LIMS = 100
+
+
 def is_prime(number: int) -> str:
     for i in range(2, number):
         if number % i == 0 and number != i:
@@ -87,7 +107,7 @@ def is_prime(number: int) -> str:
 
 
 def prime():
-    number = randint(2, GEN_LIMS)
+    number = randint(2, PRIME_GEN_LIMS)
     correct_answer = is_prime(number)
     question = f'Question: {number}'
     return (question, correct_answer)

@@ -1,10 +1,18 @@
-import brain_games.scripts.brain_games as game
-from brain_games.games_logic import check_even
+"""
+Реализация игры "Проверка на чётность".
+Суть игры в следующем: пользователю показывается случайное число.
+И ему нужно ответить yes, если число чётное, или no — если нечётное.
+
+"""
+
+
+import brain_games.tools.game as game
+from brain_games.tools.games_logic import even
 
 
 def main():
     rule = 'Answer "yes" if the number is even, otherwise answer "no".'
-    game.main(check_even, rule)
+    game.start(even, rule)
 
 
 if __name__ == '__main__':

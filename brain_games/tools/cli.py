@@ -1,3 +1,9 @@
+"""
+Модуль реализует интерфейс взаимодействия с пользователем:
+вывод сообщений в консоль, ввод ответов пользователя для серии игр brain_games
+"""
+
+
 import prompt
 
 
@@ -41,5 +47,5 @@ def check_answer(answer: str, correct_answer: str, name: str) -> bool:
     return result
 
 
-def congratuletions(name: str) -> None:
+def congratulations(name: str) -> None:
     print(f'Congratulations, {name}!')
