@@ -5,8 +5,8 @@ description = "Игры разума"
 authors = ["Alexander <alexandrageev87@gmail.com>"]
 readme = "README.md"
 classifiers = [
-    Topic :: Games/Entertainment
-    Topic :: Education
+    "Topic :: Games/Entertainment",
+    "Topic :: Education"
 ]
 repository = "github.com:Alexander-Ageev/python-project-49.git"
 packages = [
