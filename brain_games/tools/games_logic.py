@@ -32,7 +32,7 @@ def calc() -> tuple:
     b = randint(0, CALC_GEN_LIMS)
     operation_type = choice([*OPERATIONS])
     correct_answer = OPERATIONS[operation_type](a, b)
-    question = f'Question: {a}{operation_type}{b}'
+    question = f'Question: {a} {operation_type} {b}'
     return (question, str(correct_answer))
 
 
