@@ -1,19 +1,23 @@
-#!/usr/bin/env python3
 """
-Реализация игры "Простое ли число?".
-Игроку показывается случайное число. Он должен ответить yes,
-если это число является простым, или no, если число простым не является.
+Логика игры "Простое ли число?".
 """
 
 
-import brain_games.tools.game as game
-from brain_games.tools.games_logic import prime
+from random import randint
 
 
-def main():
-    rule = 'Answer "yes" if given number is prime. Otherwise answer "no".'
-    game.start(prime, rule)
+PRIME_GEN_LIMS = 100
 
 
-if __name__ == '__main__':
-    main()
+def is_prime(number: int) -> str:
+    for i in range(2, number):
+        if number % i == 0 and number != i:
+            return False
+    return True
+
+
+def prime():
+    number = randint(2, PRIME_GEN_LIMS)
+    correct_answer = 'yes' if is_prime(number) else 'no'
+    question = f'{number}'
+    return (question, correct_answer)

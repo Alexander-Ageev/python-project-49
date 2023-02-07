@@ -1,20 +1,23 @@
-#!/usr/bin/env python3
 """
-Реализация игры "Проверка на чётность".
-Суть игры в следующем: пользователю показывается случайное число.
-И ему нужно ответить yes, если число чётное, или no — если нечётное.
-
+Логика игры "Проверка на чётность".
 """
 
 
-import brain_games.tools.game as game
-from brain_games.tools.games_logic import even
+from random import randint
 
 
-def main():
-    rule = 'Answer "yes" if the number is even, otherwise answer "no".'
-    game.start(even, rule)
+IS_EVEN = {0: 'yes', 1: 'no'}
+EVEN_GEN_LIMS = 100
 
 
-if __name__ == '__main__':
-    main()
+def even():
+    """
+    Функция генерирует случайное число и возвращает кортеж:
+        (вопрос, правильный ответ),
+    где правильный ответ "yes", если число четное
+    "no" - если нечетное.
+    """
+    number = randint(1, EVEN_GEN_LIMS)
+    question = f'{number}'
+    correct_answer = IS_EVEN[number % 2]
+    return (question, correct_answer)

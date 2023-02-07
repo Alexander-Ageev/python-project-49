@@ -1,20 +1,29 @@
-#!/usr/bin/env python3
 """
-Реализация игры "Калькулятор".
-Суть игры в следующем: пользователю показывается
-случайное математическое выражение,
-например 35 + 16, которое нужно вычислить и записать правильный ответ.
+Логика игры "Калькулятор".
 """
 
 
-import brain_games.tools.game as game
-from brain_games.tools.games_logic import calc
+from random import choice, randint
 
 
-def main():
-    rule = 'What is the result of the expression?'
-    game.start(calc, rule)
+OPERATIONS = {'+': lambda a, b: a + b,
+              '-': lambda a, b: a - b,
+              '*': lambda a, b: a * b}
+CALC_GEN_LIMS = 100
 
 
-if __name__ == '__main__':
-    main()
+def calc() -> tuple:
+    """
+    Функция случайным образом генерирует пример вида:
+        a [арифметическая операция] b.
+    a и b генерируются в диапазоне +-GEN_LIMS,
+    допустимые арифметические операции описаны в константе OPERATIONS.
+    В результате работы функция возвращает кортеж:
+        (строка с примером, правильный ответ).
+    """
+    a = randint(0, CALC_GEN_LIMS)
+    b = randint(0, CALC_GEN_LIMS)
+    operation_type = choice([*OPERATIONS])
+    correct_answer = OPERATIONS[operation_type](a, b)
+    question = f'{a} {operation_type} {b}'
+    return (question, str(correct_answer))

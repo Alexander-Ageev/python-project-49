@@ -1,23 +1,36 @@
-#!/usr/bin/env python3
 """
-Реализация игры "Арифметическая прогрессия".
-Показываем игроку ряд чисел, образующий арифметическую прогрессию,
-заменив любое из чисел двумя точками. Игрок должен определить это число.
-
-Рекомендуемая длина прогрессии – 10 чисел. Длина может генерироваться
-случайным образом, но должна содержать не менее 5-ти чисел!
-Позиция спрятанного элемента каждый раз изменяется.
+Логика игры "Арифметическая прогрессия".
 """
 
 
-import brain_games.tools.game as game
-from brain_games.tools.games_logic import progression
+from random import randint
 
 
-def main():
-    rule = 'What number is missing in the progression?'
-    game.start(progression, rule)
+MIN_SEQUENCE_LEN = 5
+MAX_SEQUENCE_LEN = 15
+GEN_STEP_LIM = 10
+PROGRESSION_GEN_LIMS = 10
 
 
-if __name__ == '__main__':
-    main()
+def get_progression(start_element: int, step: int, num_elements: int) -> list:
+    result = [(start_element + step * i) for i in range(num_elements)]
+    return result
+
+
+def skip_random_element(progression: list) -> str:
+    progression = [str(i) for i in progression]
+    skip_elemend_id = randint(0, len(progression) - 1)
+    skip_index = progression[skip_elemend_id]
+    progression[skip_elemend_id] = '..'
+    progression_str = ' '.join(progression)
+    return (progression_str, skip_index)
+
+
+def progression():
+    num_elements = randint(MIN_SEQUENCE_LEN, MAX_SEQUENCE_LEN)
+    start_element = randint(0, PROGRESSION_GEN_LIMS)
+    step = randint(1, GEN_STEP_LIM)
+    progression = get_progression(start_element, step, num_elements)
+    progression_str, correct_answer = skip_random_element(progression)
+    question = f'{progression_str}'
+    return (question, str(correct_answer))

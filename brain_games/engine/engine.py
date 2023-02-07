@@ -12,22 +12,28 @@
 """
 
 
-import brain_games.tools.cli as cli
+import prompt
 
 
 ATTEMPS_NUMS = 3
 
 
 def start(function=None, rule=None):
-    cli.welcome()
-    name = cli.username_request()
-    cli.hello(name)
-    cli.get_rule(rule)
+    print('Welcome to the Brain Games!')
+    name = prompt.string('May I have your name?\n>>> ')
+    print(f'Hello, {name}!')
+    if rule is not None:
+        print(rule)
     if function is not None:
         for i in range(ATTEMPS_NUMS):
-            message, correct_answer = function()
-            answer = cli.get_question(message)
-            is_correct = cli.check_answer(answer, correct_answer, name)
-            if not is_correct:
+            question, correct_answer = function()
+            print(f'Question: {question}')
+            answer = prompt.string('Your answer:\n>>> ').lower()
+            if answer == correct_answer:
+                print('Correct!')
+            else:
+                print(f"'{answer}' is wrong answer ;(.")
+                print(f"Correct answer was '{correct_answer}'.")
+                print(f"Let's try again, {name}!")
                 return None
-        cli.congratulations(name)
+        print(f'Congratulations, {name}!')

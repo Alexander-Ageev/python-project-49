@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-import brain_games.tools.cli as cli
+import brain_games.engine.engine
 
 
 def main():
-    cli.welcome()
-    name = cli.username_request()
-    cli.hello(name)
+    brain_games.engine.engine.start()
 
 
 if __name__ == '__main__':
