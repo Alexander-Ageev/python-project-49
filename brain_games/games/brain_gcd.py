@@ -32,5 +32,5 @@ def gcd():
     m = randint(LOWER_BOUND, UPPER_BOUND)
     k = randint(LOWER_BOUND, UPPER_BOUND)
     question = f'{m} {k}'
-    correct_answer = get_gcd(m, k)
+    correct_answer = get_gcd_evkl(m, k)
     return (question, str(correct_answer))
