@@ -13,7 +13,7 @@ from brain_games.games.brain_calc import calc
 
 def main():
     rule = 'What is the result of the expression?'
-    game.start(calc, rule)
+    game.play_game(calc, rule)
 
 
 if __name__ == '__main__':

@@ -16,7 +16,7 @@ from brain_games.games.brain_progression import progression
 
 def main():
     rule = 'What number is missing in the progression?'
-    game.start(progression, rule)
+    game.play_game(progression, rule)
 
 
 if __name__ == '__main__':

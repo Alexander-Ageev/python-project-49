@@ -4,9 +4,10 @@
 
 
 from random import randint
-
-
-PRIME_GEN_LIMS = 100
+# число 1 формально не является простым,
+# лучше избежать разночтений и не генерировать его.
+LOWER_BOUND = 2
+UPPER_BOUND = 100
 
 
 def is_prime(number: int) -> str:
@@ -17,7 +18,7 @@ def is_prime(number: int) -> str:
 
 
 def prime():
-    number = randint(2, PRIME_GEN_LIMS)
+    number = randint(LOWER_BOUND, UPPER_BOUND)
     correct_answer = 'yes' if is_prime(number) else 'no'
     question = f'{number}'
     return (question, correct_answer)

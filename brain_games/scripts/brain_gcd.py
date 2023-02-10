@@ -13,7 +13,7 @@ from brain_games.games.brain_gcd import gcd
 
 def main():
     rule = 'Find the greatest common divisor of given numbers.'
-    game.start(gcd, rule)
+    game.play_game(gcd, rule)
 
 
 if __name__ == '__main__':

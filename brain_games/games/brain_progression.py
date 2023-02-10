@@ -8,8 +8,9 @@ from random import randint
 
 MIN_SEQUENCE_LEN = 5
 MAX_SEQUENCE_LEN = 15
-GEN_STEP_LIM = 10
-PROGRESSION_GEN_LIMS = 10
+STEP_UPPER_BOUND = 10
+LOWER_BOUND = 0
+UPPER_BOUND = 10
 
 
 def get_progression(start_element: int, step: int, num_elements: int) -> list:
@@ -17,20 +18,20 @@ def get_progression(start_element: int, step: int, num_elements: int) -> list:
     return result
 
 
-def skip_random_element(progression: list) -> str:
+def skip_element(progression: list, skip_index: int) -> str:
     progression = [str(i) for i in progression]
-    skip_elemend_id = randint(0, len(progression) - 1)
-    skip_index = progression[skip_elemend_id]
-    progression[skip_elemend_id] = '..'
+    progression[skip_index] = '..'
     progression_str = ' '.join(progression)
-    return (progression_str, skip_index)
+    return progression_str
 
 
 def progression():
     num_elements = randint(MIN_SEQUENCE_LEN, MAX_SEQUENCE_LEN)
-    start_element = randint(0, PROGRESSION_GEN_LIMS)
-    step = randint(1, GEN_STEP_LIM)
+    start_element = randint(LOWER_BOUND, UPPER_BOUND)
+    step = randint(1, STEP_UPPER_BOUND)
     progression = get_progression(start_element, step, num_elements)
-    progression_str, correct_answer = skip_random_element(progression)
+    skip_elemend_id = randint(0, len(progression) - 1)
+    correct_answer = progression[skip_elemend_id]
+    progression_str = skip_element(progression)
     question = f'{progression_str}'
     return (question, str(correct_answer))

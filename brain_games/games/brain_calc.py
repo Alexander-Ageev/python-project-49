@@ -9,7 +9,8 @@ from random import choice, randint
 OPERATIONS = {'+': lambda a, b: a + b,
               '-': lambda a, b: a - b,
               '*': lambda a, b: a * b}
-CALC_GEN_LIMS = 100
+LOWER_BOUND = 0
+UPPER_BOUND = 100
 
 
 def calc() -> tuple:
@@ -21,8 +22,8 @@ def calc() -> tuple:
     В результате работы функция возвращает кортеж:
         (строка с примером, правильный ответ).
     """
-    a = randint(0, CALC_GEN_LIMS)
-    b = randint(0, CALC_GEN_LIMS)
+    a = randint(LOWER_BOUND, UPPER_BOUND)
+    b = randint(LOWER_BOUND, UPPER_BOUND)
     operation_type = choice([*OPERATIONS])
     correct_answer = OPERATIONS[operation_type](a, b)
     question = f'{a} {operation_type} {b}'

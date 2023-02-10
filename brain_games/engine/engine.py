@@ -15,18 +15,18 @@
 import prompt
 
 
-ATTEMPS_NUMS = 3
+ROUNDS = 3
 
 
-def start(function=None, rule=None):
+def play_game(get_game_round=None, rule=None):
     print('Welcome to the Brain Games!')
     name = prompt.string('May I have your name?\n>>> ')
     print(f'Hello, {name}!')
     if rule is not None:
         print(rule)
-    if function is not None:
-        for i in range(ATTEMPS_NUMS):
-            question, correct_answer = function()
+    if get_game_round is not None:
+        for i in range(ROUNDS):
+            question, correct_answer = get_game_round()
             print(f'Question: {question}')
             answer = prompt.string('Your answer:\n>>> ').lower()
             if answer == correct_answer:

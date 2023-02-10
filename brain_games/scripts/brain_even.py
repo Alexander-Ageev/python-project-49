@@ -13,7 +13,7 @@ from brain_games.games.brain_even import even
 
 def main():
     rule = 'Answer "yes" if the number is even, otherwise answer "no".'
-    game.start(even, rule)
+    game.play_game(even, rule)
 
 
 if __name__ == '__main__':
