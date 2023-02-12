@@ -18,9 +18,9 @@ def get_progression(start_element: int, step: int, num_elements: int) -> list:
     return result
 
 
-def skip_element(progression: list, skip_index: int) -> str:
+def skip_element(progression: list, skip_element_id: int) -> str:
     progression = [str(i) for i in progression]
-    progression[skip_index] = '..'
+    progression[skip_element_id] = '..'
     progression_str = ' '.join(progression)
     return progression_str
 
@@ -32,6 +32,6 @@ def progression():
     progression = get_progression(start_element, step, num_elements)
     skip_elemend_id = randint(0, len(progression) - 1)
     correct_answer = progression[skip_elemend_id]
-    progression_str = skip_element(progression)
+    progression_str = skip_element(progression, skip_elemend_id)
     question = f'{progression_str}'
     return (question, str(correct_answer))
