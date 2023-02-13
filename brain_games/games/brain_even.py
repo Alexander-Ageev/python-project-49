@@ -21,4 +21,4 @@ def even():
     number = randint(LOWER_BOUND, UPPER_BOUND)
     question = f'{number}'
     correct_answer = IS_EVEN[number % 2]
-    return (question, correct_answer)
+    return question, correct_answer

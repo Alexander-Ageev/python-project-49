@@ -27,4 +27,4 @@ def calc() -> tuple:
     operation_type = choice([*OPERATIONS])
     correct_answer = OPERATIONS[operation_type](a, b)
     question = f'{a} {operation_type} {b}'
-    return (question, str(correct_answer))
+    return question, str(correct_answer)

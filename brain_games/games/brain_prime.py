@@ -21,4 +21,4 @@ def prime():
     number = randint(LOWER_BOUND, UPPER_BOUND)
     correct_answer = 'yes' if is_prime(number) else 'no'
     question = f'{number}'
-    return (question, correct_answer)
+    return question, correct_answer

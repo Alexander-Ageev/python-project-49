@@ -34,4 +34,4 @@ def progression():
     correct_answer = progression[skip_elemend_id]
     progression_str = skip_element(progression, skip_elemend_id)
     question = f'{progression_str}'
-    return (question, str(correct_answer))
+    return question, str(correct_answer)
